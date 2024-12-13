@@ -119,23 +119,23 @@ const config: HardhatUserConfig = {
       url: "https://sepolia.publicgoods.network",
       accounts: [deployerPrivateKey],
     },
-    galadriel: {
-      url: "https://devnet.galadriel.com",
-      accounts: [deployerPrivateKey],
-    },
+    // galadriel: {
+    //   url: "https://devnet.galadriel.com",
+    //   accounts: [deployerPrivateKey],
+    // },
   },
   // configuration for harhdat-verify plugin
   etherscan: {
     apiKey: `${etherscanApiKey}`,
     customChains: [
-      {
-        network: "696969",
-        chainId: 696969,
-        urls: {
-          apiURL: "https://explorer.galadriel.com/api",
-          browserURL: "https://explorer.galadriel.com/",
-        },
-      },
+      // {
+      //   network: "696969",
+      //   chainId: 696969,
+      //   urls: {
+      //     apiURL: "https://explorer.galadriel.com/api",
+      //     browserURL: "https://explorer.galadriel.com/",
+      //   },
+      // },
     ],
   },
   // configuration for etherscan-verify from hardhat-deploy plugin

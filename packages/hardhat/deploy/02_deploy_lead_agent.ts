@@ -63,7 +63,7 @@ const deployAll: DeployFunction = async function (hre: HardhatRuntimeEnvironment
 
   console.log(`Verify LeadAgent, TechAgent, SocialAgent, DataAgent:`);
   console.log(
-    `npx hardhat verify --network galadriel "${leadAgent.address}" "${oracleAddress}" "You are a helpful assistant" "${factoryAddresses.TechAgentFactory}" "${factoryAddresses.SocialAgentFactory}" "${factoryAddresses.DataAgentFactory}"`,
+    `npx hardhat verify --network baseSepolia "${leadAgent.address}" "${oracleAddress}" "You are a helpful assistant" "${factoryAddresses.TechAgentFactory}" "${factoryAddresses.SocialAgentFactory}" "${factoryAddresses.DataAgentFactory}"`,
   );
   // Get the deployed agent addresses
   const leadAgentContract = (await hre.ethers.getContract("LeadAgent")) as LeadAgent;
@@ -72,15 +72,15 @@ const deployAll: DeployFunction = async function (hre: HardhatRuntimeEnvironment
   const dataAgentAddress = await leadAgentContract.dataAgent();
 
   console.log(
-    `npx hardhat verify --network galadriel --contract contracts/TechAgent.sol:TechAgent "${techAgentAddress}" "${oracleAddress}"`,
+    `npx hardhat verify --network baseSepolia --contract contracts/TechAgent.sol:TechAgent "${techAgentAddress}" "${oracleAddress}"`,
   );
 
   console.log(
-    `npx hardhat verify --network galadriel --contract contracts/SocialAgent.sol:SocialAgent "${socialAgentAddress}" "${oracleAddress}"`,
+    `npx hardhat verify --network baseSepolia --contract contracts/SocialAgent.sol:SocialAgent "${socialAgentAddress}" "${oracleAddress}"`,
   );
 
   console.log(
-    `npx hardhat verify --network galadriel --contract contracts/DataAgent.sol:DataAgent "${dataAgentAddress}" "${oracleAddress}"`,
+    `npx hardhat verify --network baseSepolia --contract contracts/DataAgent.sol:DataAgent "${dataAgentAddress}" "${oracleAddress}"`,
   );
 };
 

@@ -31,7 +31,7 @@ export async function POST(request: Request) {
   } = await request.json();
 
   try {
-    // Create the chat in Galadriel
+    // Create the chat in Base
     // TODO: Deploy
     const response = await fetch("http://localhost:3001/group-chats", {
       method: "POST",
