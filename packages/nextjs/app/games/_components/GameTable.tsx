@@ -15,7 +15,6 @@ export const GameTable = ({ games }: { games: Game[] }) => {
             <th>Group ID</th>
             <th>Status</th>
             <th>Progress</th>
-            <th>Actions</th>
           </tr>
         </thead>
         <tbody>

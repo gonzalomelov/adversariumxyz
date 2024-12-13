@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Image from "next/image";
 import { Address } from "~~/components/scaffold-eth";
 import { Game } from "~~/types";
@@ -9,33 +8,6 @@ const gameTypeMap = {
 };
 
 export const GameItem = ({ game }: { game: Game }) => {
-  const [isVerifying, setIsVerifying] = useState(false);
-
-  const verifyAction = async () => {
-    setIsVerifying(true);
-    try {
-      const response = await fetch(`/api/games/${game.id}/verify`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ targetAddress: game.target }),
-      });
-
-      if (response.ok) {
-        // Handle successful verification
-        console.log("Action verified successfully");
-      } else {
-        // Handle verification failure
-        console.error("Verification failed");
-      }
-    } catch (error) {
-      console.error("Error during verification:", error);
-    } finally {
-      setIsVerifying(false);
-    }
-  };
-
   return (
     <tr>
       <td>{game.id}</td>
@@ -55,15 +27,6 @@ export const GameItem = ({ game }: { game: Game }) => {
       <td>{game.is_finished ? "Completed" : "In Progress"}</td>
       <td>
         {game.responsesCount} / {game.max_iterations}
-      </td>
-      <td>
-        <button
-          onClick={verifyAction}
-          disabled={isVerifying}
-          className={`btn btn-sm ${isVerifying ? "btn-disabled" : "btn-primary"}`}
-        >
-          {isVerifying ? "Verifying..." : "Verify Action"}
-        </button>
       </td>
     </tr>
   );
