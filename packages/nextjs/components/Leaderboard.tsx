@@ -41,7 +41,7 @@ export const Leaderboard = () => {
     <div className="bg-base-100 rounded-3xl shadow-lg p-6">
       <h2 className="text-2xl font-bold text-center mb-4 flex items-center justify-center">
         <TrophyIcon className="h-8 w-8 text-primary mr-2" />
-        Proof of Inspiration Leaderboard
+        Leaderboard
       </h2>
       <div className="overflow-x-auto">
         <table className="table w-full">
@@ -49,7 +49,7 @@ export const Leaderboard = () => {
             <tr>
               <th className="bg-base-200">Rank</th>
               <th className="bg-base-200">Address</th>
-              <th className="bg-base-200">People Inspired</th>
+              <th className="bg-base-200">Prize Pool</th>
             </tr>
           </thead>
           <tbody>

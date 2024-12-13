@@ -61,12 +61,12 @@ export const Footer = () => {
               </p>
               <a
                 className="flex justify-center items-center gap-1"
-                href="https://ethglobal.com/showcase/goinspire-xyz-yzvyj"
+                href="https://aleph.crecimiento.build"
                 target="_blank"
                 rel="noreferrer"
               >
                 {/* <BuidlGuidlLogo className="w-3 h-5 pb-1" /> */}
-                <span className="link">ETHOnline 2024</span>
+                <span className="link">Aleph de Verano 2024</span>
               </a>
             </div>
             {/* <span>·</span>

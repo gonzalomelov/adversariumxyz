@@ -1,24 +1,34 @@
-# Welcome to goinspire.xyz Contributing Guide
+# Welcome to adversarium.xyz Contributing Guide
 
-Thank you for investing your time in contributing to goinspire.xyz!
+Thank you for investing your time in contributing to adversarium.xyz!
 
 This guide aims to provide an overview of the contribution workflow to help us make the contribution process effective for everyone involved.
 
 ## About the Project
 
-goinspire.xyz is a hackathon project built for ETHOnline 2024.
+adversarium.xyz is a platform for creating and playing adversarial AI games, built on Base blockchain with privacy-preserving features using zero-knowledge proofs.
 
 Read the [README](README.md) to get an overview of the project.
 
 ### Vision
 
-The goal of goinspire.xyz is to inspire people to take positive actions in group chats using onchain AI-driven experiences.
+The goal of adversarium.xyz is to enable creators to design, deploy, and monetize adversarial AI-driven games where players compete against AI agents in transparent, privacy-preserving environments. These games challenge human ingenuity through competitive scenarios against AI that follows strict rules and behaviors.
 
-The repo can be forked to include integrations and more features, but we want to keep the master branch simple and minimal.
+The repo can be forked to include integrations and more features, but we want to keep the master branch focused on core platform functionality:
+- Game Creation Wizard
+- Privacy-Preserving Interactions
+- Blockchain-Powered Transparency
+- Advanced AI Integration
+- Player Interaction Features
+- Monetization Tools
+- Analytics and Insights
 
 ### Project Status
 
-The project is under active development.
+The project is under active development, following our phased roadmap:
+- Phase 1: MVP Launch
+- Phase 2: Advanced Features
+- Phase 3: Community and Ecosystem Growth
 
 You can view the open Issues, follow the development process and contribute to the project.
 

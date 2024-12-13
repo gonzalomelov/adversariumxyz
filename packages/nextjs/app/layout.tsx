@@ -5,8 +5,8 @@ import "~~/styles/globals.css";
 import { getMetadata } from "~~/utils/scaffold-eth/getMetadata";
 
 export const metadata = getMetadata({
-  title: "goinspire.xyz",
-  description: "Inspire people to take positive actions in group chats using onchain AI-driven experiences",
+  title: "adversarium.xyz",
+  description: "Create and play adversarial AI games with blockchain-powered transparency and privacy",
 });
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {

@@ -67,7 +67,7 @@ const SimulationListPage = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">My Onchain Inspirational Experiences</h1>
+      <h1 className="text-3xl font-bold mb-4">My Games</h1>
       <Link href="/simulations/create" className="btn btn-primary mb-4">
         Create
       </Link>
