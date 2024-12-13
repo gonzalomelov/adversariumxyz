@@ -1,7 +1,7 @@
-import { SimulationItem } from "./SimulationItem";
-import { Simulation } from "~~/types";
+import { GameItem } from "./GameItem";
+import { Game } from "~~/types";
 
-export const SimulationTable = ({ games }: { games: Simulation[] }) => {
+export const GameTable = ({ games }: { games: Game[] }) => {
   return (
     <div className="overflow-x-auto bg-base-100">
       <table className="table w-full">
@@ -20,7 +20,7 @@ export const SimulationTable = ({ games }: { games: Simulation[] }) => {
         </thead>
         <tbody>
           {games.map(game => (
-            <SimulationItem key={game.id} game={game} />
+            <GameItem key={game.id} game={game} />
           ))}
         </tbody>
       </table>

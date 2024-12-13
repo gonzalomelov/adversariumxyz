@@ -1,14 +1,14 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Address } from "~~/components/scaffold-eth";
-import { Simulation } from "~~/types";
+import { Game } from "~~/types";
 
 const gameTypeMap = {
   UsdcDonation: "Donate USDC",
   NftMint: "Mint Charity NFT",
 };
 
-export const SimulationItem = ({ game }: { game: Simulation }) => {
+export const GameItem = ({ game }: { game: Game }) => {
   const [isVerifying, setIsVerifying] = useState(false);
 
   const verifyAction = async () => {

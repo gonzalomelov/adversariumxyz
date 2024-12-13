@@ -1,4 +1,4 @@
-export interface Simulation {
+export interface Game {
   id: number;
   owner: string;
   responsesCount: bigint;

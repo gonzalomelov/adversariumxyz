@@ -36,7 +36,7 @@ const examples = {
   },
 };
 
-const CreateSimulationPage = () => {
+const CreateGamePage = () => {
   const [target, setTarget] = useState(examples.example1.target);
   const [targetFirstName, setTargetFirstName] = useState(examples.example1.targetFirstName);
   const [targetFriend, setTargetFriend] = useState(examples.example1.targetFriend);
@@ -173,4 +173,4 @@ const CreateSimulationPage = () => {
   );
 };
 
-export default CreateSimulationPage;
+export default CreateGamePage;

@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { SimulationTable } from "./_components/SimulationTable";
+import { GameTable } from "./_components/GameTable";
 import { useAccount } from "wagmi";
 import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
-import { Simulation } from "~~/types";
+import { Game } from "~~/types";
 
 interface AgentRunInfo {
   owner: string;
@@ -25,8 +25,8 @@ interface AgentRunInfo {
   is_finished: boolean;
 }
 
-const SimulationListPage = () => {
-  const [games, setGames] = useState<Simulation[]>([]);
+const GameListPage = () => {
+  const [games, setGames] = useState<Game[]>([]);
   const { address } = useAccount();
 
   const { data: agentRuns } = useScaffoldReadContract({
@@ -39,7 +39,7 @@ const SimulationListPage = () => {
     const fetchGames = async () => {
       if (!address || !agentRuns) return;
 
-      const gamesData: Simulation[] = await Promise.all(
+      const gamesData: Game[] = await Promise.all(
         agentRuns.map(async (run: AgentRunInfo, index: number) => {
           return {
             id: index,
@@ -71,9 +71,9 @@ const SimulationListPage = () => {
       <Link href="/games/create" className="btn btn-primary mb-4">
         Create
       </Link>
-      <SimulationTable games={games} />
+      <GameTable games={games} />
     </div>
   );
 };
 
-export default SimulationListPage;
+export default GameListPage;
