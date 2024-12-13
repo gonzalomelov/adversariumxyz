@@ -26,7 +26,7 @@ interface AgentRunInfo {
 }
 
 const SimulationListPage = () => {
-  const [simulations, setSimulations] = useState<Simulation[]>([]);
+  const [games, setGames] = useState<Simulation[]>([]);
   const { address } = useAccount();
 
   const { data: agentRuns } = useScaffoldReadContract({
@@ -36,10 +36,10 @@ const SimulationListPage = () => {
   });
 
   useEffect(() => {
-    const fetchSimulations = async () => {
+    const fetchGames = async () => {
       if (!address || !agentRuns) return;
 
-      const simulationsData: Simulation[] = await Promise.all(
+      const gamesData: Simulation[] = await Promise.all(
         agentRuns.map(async (run: AgentRunInfo, index: number) => {
           return {
             id: index,
@@ -59,19 +59,19 @@ const SimulationListPage = () => {
         }),
       );
 
-      setSimulations(simulationsData);
+      setGames(gamesData);
     };
 
-    fetchSimulations();
+    fetchGames();
   }, [address, agentRuns]);
 
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-4">My Games</h1>
-      <Link href="/simulations/create" className="btn btn-primary mb-4">
+      <Link href="/games/create" className="btn btn-primary mb-4">
         Create
       </Link>
-      <SimulationTable simulations={simulations} />
+      <SimulationTable games={games} />
     </div>
   );
 };

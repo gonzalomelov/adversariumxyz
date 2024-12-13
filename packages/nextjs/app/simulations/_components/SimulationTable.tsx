@@ -1,7 +1,7 @@
 import { SimulationItem } from "./SimulationItem";
 import { Simulation } from "~~/types";
 
-export const SimulationTable = ({ simulations }: { simulations: Simulation[] }) => {
+export const SimulationTable = ({ games }: { games: Simulation[] }) => {
   return (
     <div className="overflow-x-auto bg-base-100">
       <table className="table w-full">
@@ -19,8 +19,8 @@ export const SimulationTable = ({ simulations }: { simulations: Simulation[] }) 
           </tr>
         </thead>
         <tbody>
-          {simulations.map(simulation => (
-            <SimulationItem key={simulation.id} simulation={simulation} />
+          {games.map(game => (
+            <SimulationItem key={game.id} game={game} />
           ))}
         </tbody>
       </table>

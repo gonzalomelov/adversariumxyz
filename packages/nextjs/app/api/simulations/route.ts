@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 
 // import { createGroupChat } from "../utils/xmtp";
 
-// In-memory storage for simulations
-const simulations: {
+// In-memory storage for games
+const games: {
   id: number;
   target: string;
   targetFirstName: string;
@@ -64,8 +64,8 @@ export async function POST(request: Request) {
     //   groupId: '21312321',
     // };
 
-    const newSimulation = {
-      id: simulations.length + 1,
+    const newGame = {
+      id: games.length + 1,
       target,
       targetFirstName,
       targetFriend,
@@ -77,11 +77,11 @@ export async function POST(request: Request) {
       isCompleted: false,
       groupId: groupChatData.groupId,
     };
-    simulations.push(newSimulation);
+    games.push(newGame);
 
     return NextResponse.json(
       {
-        ...newSimulation,
+        ...newGame,
         podName: groupChatData.podName,
         message: groupChatData.message,
       },
@@ -113,12 +113,12 @@ export async function PUT(request: Request) {
     groupImage,
     isCompleted,
   } = await request.json();
-  const simulationIndex = simulations.findIndex(simulation => simulation.id === id);
-  if (simulationIndex === -1) {
-    return NextResponse.json({ error: "Simulation not found" }, { status: 404 });
+  const gameIndex = games.findIndex(game => game.id === id);
+  if (gameIndex === -1) {
+    return NextResponse.json({ error: "Game not found" }, { status: 404 });
   }
-  simulations[simulationIndex] = {
-    ...simulations[simulationIndex],
+  games[gameIndex] = {
+    ...games[gameIndex],
     target,
     targetFirstName,
     targetFriend,
@@ -129,15 +129,15 @@ export async function PUT(request: Request) {
     groupImage,
     isCompleted,
   };
-  return NextResponse.json(simulations[simulationIndex]);
+  return NextResponse.json(games[gameIndex]);
 }
 
 export async function DELETE(request: Request) {
   const { id } = await request.json();
-  const simulationIndex = simulations.findIndex(simulation => simulation.id === id);
-  if (simulationIndex === -1) {
-    return NextResponse.json({ error: "Simulation not found" }, { status: 404 });
+  const gameIndex = games.findIndex(game => game.id === id);
+  if (gameIndex === -1) {
+    return NextResponse.json({ error: "Game not found" }, { status: 404 });
   }
-  simulations.splice(simulationIndex, 1);
-  return NextResponse.json({ message: "Simulation deleted successfully" });
+  games.splice(gameIndex, 1);
+  return NextResponse.json({ message: "Game deleted successfully" });
 }

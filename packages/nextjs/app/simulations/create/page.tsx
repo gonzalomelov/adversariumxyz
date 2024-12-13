@@ -52,7 +52,7 @@ const CreateSimulationPage = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response = await fetch("/api/simulations", {
+    const response = await fetch("/api/games", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -70,9 +70,9 @@ const CreateSimulationPage = () => {
       }),
     });
     if (response.ok) {
-      router.push("/simulations");
+      router.push("/games");
     } else {
-      console.error("Failed to create simulation");
+      console.error("Failed to create game");
     }
   };
 
