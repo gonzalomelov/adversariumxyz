@@ -24,7 +24,7 @@ const GameListPage = () => {
   const { address } = useAccount();
 
   const { data: agentRuns } = useScaffoldReadContract({
-    contractName: "LeadAgent",
+    contractName: "AgentGame",
     functionName: "getAgentRuns",
     args: [address],
   });

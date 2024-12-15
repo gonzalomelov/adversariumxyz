@@ -6,8 +6,8 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
   31337: {
-    LeadAgent: {
-      address: "0x3Aa5ebB10DC797CAC828524e59A333d0A371443c",
+    AgentGame: {
+      address: "0x322813Fd9A801c5507c9de605d63CEA4f2CE6c44",
       abi: [
         {
           inputs: [
@@ -169,7 +169,7 @@ const deployedContracts = {
                   type: "bool",
                 },
               ],
-              internalType: "struct LeadAgent.AgentRun[]",
+              internalType: "struct AgentGame.AgentRun[]",
               name: "",
               type: "tuple[]",
             },
@@ -257,7 +257,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     TodoList: {
-      address: "0x68B1D87F95878fE05B998F19b66F4baba5De1aed",
+      address: "0x4ed7c70F96B99c776995fB64377f0d4aB3B0e1C1",
       abi: [
         {
           anonymous: false,
@@ -405,7 +405,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x9A9f2CCfdE556A7E9Ff0848998Aa4a0CFD8863AE",
+      address: "0x59b670e9fA9D0A427751Af201D676719a970857b",
       abi: [
         {
           inputs: [
@@ -549,8 +549,8 @@ const deployedContracts = {
     },
   },
   84532: {
-    LeadAgent: {
-      address: "0xA01D9727bE9fFe092d574Cb5eb50C97bFE60809e",
+    AgentGame: {
+      address: "0x08aE1b7cCd13B4E3Ca64d5ebDE003fB0CcA908D5",
       abi: [
         {
           inputs: [
@@ -712,7 +712,7 @@ const deployedContracts = {
                   type: "bool",
                 },
               ],
-              internalType: "struct LeadAgent.AgentRun[]",
+              internalType: "struct AgentGame.AgentRun[]",
               name: "",
               type: "tuple[]",
             },
@@ -800,7 +800,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     TodoList: {
-      address: "0xB6FcD17D10a9705de438Cba3bd31654f72443621",
+      address: "0x168B9a6C1f9ddbb2B7d29CAF2C47066fb1c472Dd",
       abi: [
         {
           anonymous: false,
@@ -948,7 +948,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x7B50b52587fDdF8f51bF90e8fA55D42c29BdB286",
+      address: "0x089E7a35db0228c12D3C4371B29dF0CCF850Fd1b",
       abi: [
         {
           inputs: [

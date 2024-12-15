@@ -1,0 +1,36 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/AgentGame.sol": {
+      "content": "// SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.8.9;\n\n// Uncomment this line to use console.log\n// import \"hardhat/console.sol\";\n\ncontract AgentGame {\n\n    string public prompt;\n\n    struct AgentRun {\n        address owner;\n        address creator;\n        string name;\n        string prompt;\n        string groupImage;\n        string groupId;\n        uint responsesCount;\n        uint8 max_iterations;\n        bool is_finished;\n    }\n\n    mapping(uint => AgentRun) public agentRuns;\n    uint public agentRunCount;\n\n    event AgentRunCreated(address indexed owner, uint indexed runId);\n\n    address private owner;\n\n    constructor(\n        string memory systemPrompt\n    ) {\n        owner = msg.sender;\n        prompt = systemPrompt;\n    }\n\n    modifier onlyOwner() {\n        require(msg.sender == owner, \"Caller is not owner\");\n        _;\n    }\n\n    function runAgent(\n        uint8 max_iterations,\n        address creator,\n        string memory name,\n        string memory prompt,\n        string memory groupImage,\n        string memory groupId\n    ) public returns (uint) {\n        uint currentId = agentRunCount;\n        AgentRun storage run = agentRuns[currentId];\n\n        run.owner = msg.sender;\n        run.creator = creator;\n        run.name = name;\n        run.prompt = prompt;\n        run.groupImage = groupImage;\n        run.groupId = groupId;\n        run.is_finished = false;\n        run.responsesCount = 0;\n        run.max_iterations = max_iterations;\n\n        agentRunCount = agentRunCount + 1;\n        \n        emit AgentRunCreated(run.owner, currentId);\n\n        return currentId;\n    }\n\n    function isRunFinished(uint runId) public view returns (bool) {\n        return agentRuns[runId].is_finished;\n    }\n\n    function getAgentRuns(address _creator) public view returns (AgentRun[] memory) {\n        uint count = 0;\n        for (uint i = 0; i < agentRunCount; i++) {\n            if (_creator == address(0) || agentRuns[i].creator == _creator) {\n                count++;\n            }\n        }\n\n        AgentRun[] memory filteredRuns = new AgentRun[](count);\n        uint index = 0;\n        for (uint i = 0; i < agentRunCount; i++) {\n            if (_creator == address(0) || agentRuns[i].creator == _creator) {\n                filteredRuns[index] = AgentRun({\n                    owner: agentRuns[i].owner,\n                    creator: agentRuns[i].creator,\n                    name: agentRuns[i].name,\n                    prompt: agentRuns[i].prompt,\n                    groupImage: agentRuns[i].groupImage,\n                    groupId: agentRuns[i].groupId,\n                    responsesCount: agentRuns[i].responsesCount,\n                    max_iterations: agentRuns[i].max_iterations,\n                    is_finished: agentRuns[i].is_finished\n                });\n                index++;\n            }\n        }\n\n        return filteredRuns;\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "viaIR": true,
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

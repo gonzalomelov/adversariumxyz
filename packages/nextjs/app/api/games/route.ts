@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import LeadAgentABI from "../utils/LeadAgentABI";
+import AgentGameABI from "../utils/AgentGameABI";
 import { ethers } from "ethers";
 
 function generateUUID() {
@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     const wallet = new ethers.Wallet(PRIVATE_KEY!, provider);
 
     // Initialize contract
-    const contract = new ethers.Contract(AGENT_CONTRACT_ADDRESS!, LeadAgentABI, wallet);
+    const contract = new ethers.Contract(AGENT_CONTRACT_ADDRESS!, AgentGameABI, wallet);
 
     const groupId = generateUUID();
 

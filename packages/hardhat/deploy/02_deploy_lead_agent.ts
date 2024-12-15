@@ -10,21 +10,21 @@ const deployAll: DeployFunction = async function (hre: HardhatRuntimeEnvironment
 
   console.log("Deploying contracts with the account:", deployer);
 
-  // Deploy LeadAgent
-  console.log("Deploying LeadAgent...");
-  const leadAgent = await deploy("LeadAgent", {
+  // Deploy AgentGame
+  console.log("Deploying AgentGame...");
+  const agentGame = await deploy("AgentGame", {
     from: deployer,
     args: [AGENT_PROMPT],
     log: true,
     gasLimit: 15000000,
   });
 
-  console.log(`LeadAgent deployed to ${leadAgent.address}`);
+  console.log(`AgentGame deployed to ${agentGame.address}`);
 
-  console.log(`Verify LeadAgent:`);
-  console.log(`npx hardhat verify --network baseSepolia "${leadAgent.address}" "You are a helpful assistant"`);
+  console.log(`Verify AgentGame:`);
+  console.log(`npx hardhat verify --network baseSepolia "${agentGame.address}" "You are a helpful assistant"`);
 };
 
 export default deployAll;
 
-deployAll.tags = ["LeadAgent"];
+deployAll.tags = ["AgentGame"];
