@@ -11,12 +11,11 @@ adversarium.xyz is a platform where creators can design, deploy, and monetize ad
 
 ## 🌟 Overview
 
-Players compete in strategic scenarios against AI agents that follow strict rules and behaviors, often governed by public system prompts. The platform leverages blockchain technology, zero-knowledge proofs, and advanced AI models to create unique, transparent, and privacy-preserving gaming experiences.
+Players compete in strategic scenarios against AI agents that follow strict rules and behaviors, often governed by public system prompts. The platform leverages blockchain technology and advanced AI models to create unique, transparent, and privacy-preserving gaming experiences.
 
 ## 🚀 Key Features
 
 - 🎮 **Game Creation Wizard**: No-code interface for creating and deploying AI games
-- 🔒 **Privacy-Preserving**: zk-proofs for anonymous gameplay and query verification
 - ⛓️ **Blockchain-Powered**: Smart contracts manage prize pools and query fees
 - 🤖 **Advanced AI Integration**: LLM-driven AI agents with customizable decision-making
 - 💬 **Player Interactions**: Global chat and private query options
@@ -34,7 +33,7 @@ Players compete in strategic scenarios against AI agents that follow strict rule
 
 - **Frontend**: Next.js, Tailwind CSS, Ethers.js
 - **Backend**: Node.js, PostgreSQL
-- **Blockchain**: Base, Solidity, zk-proofs
+- **Blockchain**: Base, Solidity, OnchainKit, AgentKit
 - **AI**: OpenAI/Hugging Face LLMs
 
 ## 🚀 Getting Started
