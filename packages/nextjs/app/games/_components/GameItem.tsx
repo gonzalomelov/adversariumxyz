@@ -16,7 +16,7 @@ export const GameItem = ({ game }: { game: Game }) => {
       <td>{game.prompt.length > 60 ? `${game.prompt.slice(0, 60)}...` : game.prompt}</td>
       <td>
         <a
-          href={`${chatUrl}/?conversationId=${game.groupId}`}
+          href={`${chatUrl}/?conversationId=${game.groupId}&agentGame=${game.id}`}
           target="_blank"
           className="btn btn-primary btn-sm normal-case"
           rel="noopener noreferrer"
