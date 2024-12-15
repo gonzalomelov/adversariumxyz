@@ -373,7 +373,7 @@ const deployedContracts = {
       },
     },
     AgentGame: {
-      address: "0x7a2088a1bFc9d81c55368AE168C2C02570cB814F",
+      address: "0x09635F643e140090A9A8Dcd712eD6285858ceBef",
       abi: [
         {
           inputs: [
@@ -1393,7 +1393,7 @@ const deployedContracts = {
       },
     },
     AgentGame: {
-      address: "0x0eD667767223766B80D637BD32c1AfD9383d80c4",
+      address: "0xCE4dfeEdF34E45C5468D7D1Fedeb703AcF125a29",
       abi: [
         {
           inputs: [
