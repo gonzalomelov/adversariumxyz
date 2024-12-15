@@ -2,7 +2,9 @@
 
 <h4 align="center">
   <a href="https://adversarium.xyz">Website</a> |
-  <a href="https://github.com/adversarium/adversariumxyz">GitHub</a>
+  <a href="https://github.com/gonzalomelov/adversariumxyz">Github - App</a>
+  <a href="https://github.com/gonzalomelov/adversariumxyz-chat">Github - Chat Web</a>
+  <a href="https://github.com/gonzalomelov/adversariumxyz-backend">Github - Chat Backend</a>
 </h4>
 
 adversarium.xyz is a platform where creators can design, deploy, and monetize adversarial AI-driven games that challenge human ingenuity.
