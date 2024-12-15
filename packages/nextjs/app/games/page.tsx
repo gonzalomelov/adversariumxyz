@@ -7,7 +7,7 @@ import { useAccount } from "wagmi";
 import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 import { Game } from "~~/types";
 
-interface AgentRunInfo {
+interface AgentRun {
   owner: string;
   creator: string;
   target: string;
@@ -40,7 +40,7 @@ const GameListPage = () => {
       if (!address || !agentRuns) return;
 
       const gamesData: Game[] = await Promise.all(
-        agentRuns.map(async (run: AgentRunInfo, index: number) => {
+        agentRuns.map(async (run: AgentRun, index: number) => {
           return {
             id: index,
             owner: run.owner,

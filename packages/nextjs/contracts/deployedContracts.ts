@@ -32,7 +32,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     LeadAgent: {
-      address: "0x0B306BF915C4d645ff596e518fAf3F9669b97016",
+      address: "0x959922bE3CAee4b8Cd9a407cc3ac1C251C2007B1",
       abi: [
         {
           inputs: [
@@ -254,7 +254,7 @@ const deployedContracts = {
                   type: "bool",
                 },
               ],
-              internalType: "struct LeadAgent.AgentRunInfo[]",
+              internalType: "struct LeadAgent.AgentRun[]",
               name: "",
               type: "tuple[]",
             },
@@ -1017,7 +1017,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     LeadAgent: {
-      address: "0x9Ea3d82F39327E4Ea879c3f8304A518BCAbd1aF7",
+      address: "0x34dBa04bB01DE5269Fd2256858Cf5097a9aEC56B",
       abi: [
         {
           inputs: [
@@ -1239,7 +1239,7 @@ const deployedContracts = {
                   type: "bool",
                 },
               ],
-              internalType: "struct LeadAgent.AgentRunInfo[]",
+              internalType: "struct LeadAgent.AgentRun[]",
               name: "",
               type: "tuple[]",
             },

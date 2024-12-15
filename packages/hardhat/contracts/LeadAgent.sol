@@ -31,24 +31,6 @@ contract LeadAgent {
         bool is_finished;
     }
 
-    struct AgentRunInfo {
-        address owner;
-        address creator;
-        address target;
-        string targetFirstName;
-        string targetFriend;
-        Situation situation;
-        address situationAddress;
-        string publicInfo;
-        string privateInfo;
-        string groupTitle;
-        string groupImage;
-        string groupId;
-        uint responsesCount;
-        uint8 max_iterations;
-        bool is_finished;
-    }
-
     mapping(uint => AgentRun) public agentRuns;
     uint public agentRunCount;
 
@@ -112,7 +94,7 @@ contract LeadAgent {
         return agentRuns[runId].is_finished;
     }
 
-    function getAgentRuns(address _creator) public view returns (AgentRunInfo[] memory) {
+    function getAgentRuns(address _creator) public view returns (AgentRun[] memory) {
         uint count = 0;
         for (uint i = 0; i < agentRunCount; i++) {
             if (_creator == address(0) || agentRuns[i].creator == _creator) {
@@ -120,11 +102,11 @@ contract LeadAgent {
             }
         }
 
-        AgentRunInfo[] memory filteredRuns = new AgentRunInfo[](count);
+        AgentRun[] memory filteredRuns = new AgentRun[](count);
         uint index = 0;
         for (uint i = 0; i < agentRunCount; i++) {
             if (_creator == address(0) || agentRuns[i].creator == _creator) {
-                filteredRuns[index] = AgentRunInfo({
+                filteredRuns[index] = AgentRun({
                     owner: agentRuns[i].owner,
                     creator: agentRuns[i].creator,
                     target: agentRuns[i].target,
