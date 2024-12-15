@@ -53,43 +53,57 @@ const CreateGamePage = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Create Game</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block mb-2 text-sm font-medium text-gray-700">Name</label>
-          <input
-            type="text"
-            value={name}
-            onChange={e => setName(e.target.value)}
-            placeholder={examples.example1.name}
-            className="input input-bordered w-full"
-          />
-        </div>
-        <div>
-          <label className="block mb-2 text-sm font-medium text-gray-700">Prompt</label>
-          <input
-            type="text"
-            value={prompt}
-            onChange={e => setPrompt(e.target.value)}
-            placeholder={examples.example1.prompt}
-            className="input input-bordered w-full"
-          />
-        </div>
-        <div>
-          <label className="block mb-2 text-sm font-medium text-gray-700">Image</label>
-          <input
-            type="text"
-            value={groupImage}
-            onChange={e => setGroupImage(e.target.value)}
-            placeholder={examples.example1.groupImage}
-            className="input input-bordered w-full"
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Create
-        </button>
-      </form>
+    <div className="flex flex-col items-center min-h-screen pt-16 bg-base-100">
+      <div className="max-w-2xl w-full px-6">
+        <h1 className="text-4xl font-bold text-center mb-8">Create New Game</h1>
+        <form onSubmit={handleSubmit} className="card bg-base-200 shadow-xl p-8">
+          <div className="space-y-6">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-lg">Game Name</span>
+              </label>
+              <input
+                type="text"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                placeholder="Enter game name"
+                className="input input-bordered w-full"
+              />
+            </div>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-lg">Prompt</span>
+              </label>
+              <textarea
+                value={prompt}
+                onChange={e => setPrompt(e.target.value)}
+                placeholder="Enter game prompt"
+                className="textarea textarea-bordered h-32 rounded-none"
+              />
+            </div>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-lg">Image URL</span>
+              </label>
+              <input
+                type="text"
+                value={groupImage}
+                onChange={e => setGroupImage(e.target.value)}
+                placeholder="Enter image URL"
+                className="input input-bordered w-full"
+              />
+            </div>
+
+            <div className="form-control mt-8">
+              <button type="submit" className="btn btn-primary">
+                Create Game
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
