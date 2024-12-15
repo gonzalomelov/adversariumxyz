@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { Address } from "~~/components/scaffold-eth";
 import { Game } from "~~/types";
@@ -8,6 +10,8 @@ const gameTypeMap = {
 };
 
 export const GameItem = ({ game }: { game: Game }) => {
+  const chatUrl = process.env.NEXT_PUBLIC_CHAT_URL || "https://chat.adversarium.xyz";
+
   return (
     <tr>
       <td>{game.id}</td>
@@ -23,7 +27,16 @@ export const GameItem = ({ game }: { game: Game }) => {
         <Address address={game.target} />
       </td>
       <td>{game.groupTitle}</td>
-      <td>{game.groupId}</td>
+      <td>
+        <a
+          href={`${chatUrl}/?conversationId=${game.groupId}`}
+          target="_blank"
+          className="btn btn-primary btn-sm normal-case"
+          rel="noopener noreferrer"
+        >
+          Play Game
+        </a>
+      </td>
       <td>{game.is_finished ? "Completed" : "In Progress"}</td>
       <td>
         {game.responsesCount} / {game.max_iterations}

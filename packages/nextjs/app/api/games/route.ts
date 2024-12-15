@@ -1,21 +1,29 @@
 import { NextResponse } from "next/server";
+import LeadAgentABI from "../utils/LeadAgentABI";
+import { ethers } from "ethers";
 
-// import { createGroupChat } from "../utils/xmtp";
+function generateUUID() {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, c => {
+    const r = (Math.random() * 16) | 0;
+    const v = c === "x" ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
 
-// In-memory storage for games
-const games: {
-  id: number;
-  target: string;
-  targetFirstName: string;
-  targetFriend: string;
-  situation: string;
-  situationAddress: string;
-  privateInfo: string;
-  groupTitle: string;
-  groupImage: string;
-  isCompleted: boolean;
-  groupId: string;
-}[] = [];
+// Contract configuration
+const AGENT_CONTRACT_ADDRESS = process.env.AGENT_CONTRACT_ADDRESS;
+const RPC_URL = process.env.RPC_URL;
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
+
+if (!AGENT_CONTRACT_ADDRESS) throw new Error("Missing AGENT_CONTRACT_ADDRESS");
+if (!RPC_URL) throw new Error("Missing RPC_URL");
+if (!PRIVATE_KEY) throw new Error("Missing PRIVATE_KEY");
+
+// Situation enum mapping
+const SituationMap = {
+  UsdcDonation: 0,
+  NftMint: 1,
+};
 
 export async function POST(request: Request) {
   const {
@@ -31,14 +39,55 @@ export async function POST(request: Request) {
   } = await request.json();
 
   try {
-    // Create the chat in Base
-    // TODO: Deploy
-    const response = await fetch("http://localhost:3001/group-chats", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    // Initialize provider and signer
+    const provider = new ethers.JsonRpcProvider(RPC_URL);
+    const wallet = new ethers.Wallet(PRIVATE_KEY!, provider);
+
+    // Initialize contract
+    const contract = new ethers.Contract(AGENT_CONTRACT_ADDRESS!, LeadAgentABI, wallet);
+
+    const groupId = generateUUID();
+
+    // Call runAgent function
+    const tx = await contract.runAgent(
+      20, // max_iterations
+      creator,
+      target,
+      targetFirstName,
+      targetFriend,
+      SituationMap[situation as keyof typeof SituationMap],
+      situationAddress,
+      "", // publicInfo (empty for now)
+      privateInfo,
+      groupTitle,
+      groupImage,
+      groupId,
+    );
+
+    // Wait for transaction confirmation
+    const receipt = await tx.wait();
+
+    // Get the agent run ID from the event
+    let agentRunId;
+    for (const log of receipt.logs) {
+      try {
+        const parsedLog = contract.interface.parseLog(log);
+        if (parsedLog?.name === "AgentRunCreated") {
+          agentRunId = parsedLog.args[1].toString();
+        }
+      } catch (error) {
+        console.log("Could not parse log:", log);
+      }
+    }
+
+    if (!agentRunId) throw new Error("Failed to get agent run ID");
+
+    // Get the agent run details
+    const agentRun = await contract.agentRuns(agentRunId);
+
+    return NextResponse.json(
+      {
+        id: agentRunId,
         target,
         targetFirstName,
         targetFriend,
@@ -47,97 +96,20 @@ export async function POST(request: Request) {
         privateInfo,
         groupTitle,
         groupImage,
-        creator,
-      }),
-    });
-
-    if (!response.ok) {
-      const errorBody = await response.text();
-      throw new Error(`HTTP error! status: ${response.status}, body: ${errorBody}`);
-    }
-
-    const groupChatData = await response.json();
-
-    // const groupChatData = {
-    //   message: "Group chat instance created",
-    //   workerId: '123123213',
-    //   groupId: '21312321',
-    // };
-
-    const newGame = {
-      id: games.length + 1,
-      target,
-      targetFirstName,
-      targetFriend,
-      situation,
-      situationAddress,
-      privateInfo,
-      groupTitle,
-      groupImage,
-      isCompleted: false,
-      groupId: groupChatData.groupId,
-    };
-    games.push(newGame);
-
-    return NextResponse.json(
-      {
-        ...newGame,
-        podName: groupChatData.podName,
-        message: groupChatData.message,
+        isCompleted: agentRun.is_finished,
+        groupId,
       },
       { status: 201 },
     );
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error);
-    console.error("Error creating group chat instance:", errorMessage);
+    console.error("Error creating agent run:", errorMessage);
     return NextResponse.json(
       {
-        error: "Failed to create group chat instance",
+        error: "Failed to create agent run",
         details: errorMessage,
       },
       { status: 500 },
     );
   }
-}
-
-export async function PUT(request: Request) {
-  const {
-    id,
-    target,
-    targetFirstName,
-    targetFriend,
-    situation,
-    situationAddress,
-    privateInfo,
-    groupTitle,
-    groupImage,
-    isCompleted,
-  } = await request.json();
-  const gameIndex = games.findIndex(game => game.id === id);
-  if (gameIndex === -1) {
-    return NextResponse.json({ error: "Game not found" }, { status: 404 });
-  }
-  games[gameIndex] = {
-    ...games[gameIndex],
-    target,
-    targetFirstName,
-    targetFriend,
-    situation,
-    situationAddress,
-    privateInfo,
-    groupTitle,
-    groupImage,
-    isCompleted,
-  };
-  return NextResponse.json(games[gameIndex]);
-}
-
-export async function DELETE(request: Request) {
-  const { id } = await request.json();
-  const gameIndex = games.findIndex(game => game.id === id);
-  if (gameIndex === -1) {
-    return NextResponse.json({ error: "Game not found" }, { status: 404 });
-  }
-  games.splice(gameIndex, 1);
-  return NextResponse.json({ message: "Game deleted successfully" });
 }
