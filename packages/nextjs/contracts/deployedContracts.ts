@@ -32,34 +32,14 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     LeadAgent: {
-      address: "0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0",
+      address: "0x0B306BF915C4d645ff596e518fAf3F9669b97016",
       abi: [
         {
           inputs: [
             {
-              internalType: "address",
-              name: "initialOracleAddress",
-              type: "address",
-            },
-            {
               internalType: "string",
               name: "systemPrompt",
               type: "string",
-            },
-            {
-              internalType: "address",
-              name: "techAgentFactoryAddress",
-              type: "address",
-            },
-            {
-              internalType: "address",
-              name: "socialAgentFactoryAddress",
-              type: "address",
-            },
-            {
-              internalType: "address",
-              name: "dataAgentFactoryAddress",
-              type: "address",
             },
           ],
           stateMutability: "nonpayable",
@@ -83,37 +63,6 @@ const deployedContracts = {
           ],
           name: "AgentRunCreated",
           type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "newOracleAddress",
-              type: "address",
-            },
-          ],
-          name: "OracleAddressUpdated",
-          type: "event",
-        },
-        {
-          inputs: [
-            {
-              internalType: "string",
-              name: "message",
-              type: "string",
-            },
-            {
-              internalType: "uint256",
-              name: "runId",
-              type: "uint256",
-            },
-          ],
-          name: "addMessage",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
         },
         {
           inputs: [],
@@ -212,19 +161,6 @@ const deployedContracts = {
               internalType: "bool",
               name: "is_finished",
               type: "bool",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "dataAgent",
-          outputs: [
-            {
-              internalType: "contract IOpenAiChatGpt",
-              name: "",
-              type: "address",
             },
           ],
           stateMutability: "view",
@@ -330,44 +266,6 @@ const deployedContracts = {
           inputs: [
             {
               internalType: "uint256",
-              name: "agentId",
-              type: "uint256",
-            },
-          ],
-          name: "getMessageHistoryContents",
-          outputs: [
-            {
-              internalType: "string[]",
-              name: "",
-              type: "string[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "agentId",
-              type: "uint256",
-            },
-          ],
-          name: "getMessageHistoryRoles",
-          outputs: [
-            {
-              internalType: "string[]",
-              name: "",
-              type: "string[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
               name: "runId",
               type: "uint256",
             },
@@ -378,122 +276,6 @@ const deployedContracts = {
               internalType: "bool",
               name: "",
               type: "bool",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "runId",
-              type: "uint256",
-            },
-            {
-              internalType: "string",
-              name: "response",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "errorMessage",
-              type: "string",
-            },
-          ],
-          name: "onOracleFunctionResponse",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "runId",
-              type: "uint256",
-            },
-            {
-              components: [
-                {
-                  internalType: "string",
-                  name: "id",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "content",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "functionName",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "functionArguments",
-                  type: "string",
-                },
-                {
-                  internalType: "uint64",
-                  name: "created",
-                  type: "uint64",
-                },
-                {
-                  internalType: "string",
-                  name: "model",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "systemFingerprint",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "object",
-                  type: "string",
-                },
-                {
-                  internalType: "uint32",
-                  name: "completionTokens",
-                  type: "uint32",
-                },
-                {
-                  internalType: "uint32",
-                  name: "promptTokens",
-                  type: "uint32",
-                },
-                {
-                  internalType: "uint32",
-                  name: "totalTokens",
-                  type: "uint32",
-                },
-              ],
-              internalType: "struct IOracle.OpenAiResponse",
-              name: "response",
-              type: "tuple",
-            },
-            {
-              internalType: "string",
-              name: "errorMessage",
-              type: "string",
-            },
-          ],
-          name: "onOracleOpenAiLlmResponse",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "oracleAddress",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
             },
           ],
           stateMutability: "view",
@@ -515,29 +297,9 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "string",
-              name: "query",
-              type: "string",
-            },
-            {
               internalType: "uint8",
               name: "max_iterations",
               type: "uint8",
-            },
-            {
-              internalType: "string",
-              name: "techAgentPrompt",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "socialAgentPrompt",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "dataAgentPrompt",
-              type: "string",
             },
             {
               internalType: "address",
@@ -604,45 +366,6 @@ const deployedContracts = {
             },
           ],
           stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "newOracleAddress",
-              type: "address",
-            },
-          ],
-          name: "setOracleAddress",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "socialAgent",
-          outputs: [
-            {
-              internalType: "contract IOpenAiChatGpt",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "techAgent",
-          outputs: [
-            {
-              internalType: "contract IOpenAiChatGpt",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
           type: "function",
         },
       ],
@@ -1294,34 +1017,14 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     LeadAgent: {
-      address: "0xb5a6aaC2ed899CB95d548aDc668d6cA71cE7524F",
+      address: "0x9Ea3d82F39327E4Ea879c3f8304A518BCAbd1aF7",
       abi: [
         {
           inputs: [
             {
-              internalType: "address",
-              name: "initialOracleAddress",
-              type: "address",
-            },
-            {
               internalType: "string",
               name: "systemPrompt",
               type: "string",
-            },
-            {
-              internalType: "address",
-              name: "techAgentFactoryAddress",
-              type: "address",
-            },
-            {
-              internalType: "address",
-              name: "socialAgentFactoryAddress",
-              type: "address",
-            },
-            {
-              internalType: "address",
-              name: "dataAgentFactoryAddress",
-              type: "address",
             },
           ],
           stateMutability: "nonpayable",
@@ -1345,37 +1048,6 @@ const deployedContracts = {
           ],
           name: "AgentRunCreated",
           type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "newOracleAddress",
-              type: "address",
-            },
-          ],
-          name: "OracleAddressUpdated",
-          type: "event",
-        },
-        {
-          inputs: [
-            {
-              internalType: "string",
-              name: "message",
-              type: "string",
-            },
-            {
-              internalType: "uint256",
-              name: "runId",
-              type: "uint256",
-            },
-          ],
-          name: "addMessage",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
         },
         {
           inputs: [],
@@ -1474,19 +1146,6 @@ const deployedContracts = {
               internalType: "bool",
               name: "is_finished",
               type: "bool",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "dataAgent",
-          outputs: [
-            {
-              internalType: "contract IOpenAiChatGpt",
-              name: "",
-              type: "address",
             },
           ],
           stateMutability: "view",
@@ -1592,44 +1251,6 @@ const deployedContracts = {
           inputs: [
             {
               internalType: "uint256",
-              name: "agentId",
-              type: "uint256",
-            },
-          ],
-          name: "getMessageHistoryContents",
-          outputs: [
-            {
-              internalType: "string[]",
-              name: "",
-              type: "string[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "agentId",
-              type: "uint256",
-            },
-          ],
-          name: "getMessageHistoryRoles",
-          outputs: [
-            {
-              internalType: "string[]",
-              name: "",
-              type: "string[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
               name: "runId",
               type: "uint256",
             },
@@ -1640,122 +1261,6 @@ const deployedContracts = {
               internalType: "bool",
               name: "",
               type: "bool",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "runId",
-              type: "uint256",
-            },
-            {
-              internalType: "string",
-              name: "response",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "errorMessage",
-              type: "string",
-            },
-          ],
-          name: "onOracleFunctionResponse",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "runId",
-              type: "uint256",
-            },
-            {
-              components: [
-                {
-                  internalType: "string",
-                  name: "id",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "content",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "functionName",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "functionArguments",
-                  type: "string",
-                },
-                {
-                  internalType: "uint64",
-                  name: "created",
-                  type: "uint64",
-                },
-                {
-                  internalType: "string",
-                  name: "model",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "systemFingerprint",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "object",
-                  type: "string",
-                },
-                {
-                  internalType: "uint32",
-                  name: "completionTokens",
-                  type: "uint32",
-                },
-                {
-                  internalType: "uint32",
-                  name: "promptTokens",
-                  type: "uint32",
-                },
-                {
-                  internalType: "uint32",
-                  name: "totalTokens",
-                  type: "uint32",
-                },
-              ],
-              internalType: "struct IOracle.OpenAiResponse",
-              name: "response",
-              type: "tuple",
-            },
-            {
-              internalType: "string",
-              name: "errorMessage",
-              type: "string",
-            },
-          ],
-          name: "onOracleOpenAiLlmResponse",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "oracleAddress",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
             },
           ],
           stateMutability: "view",
@@ -1777,29 +1282,9 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "string",
-              name: "query",
-              type: "string",
-            },
-            {
               internalType: "uint8",
               name: "max_iterations",
               type: "uint8",
-            },
-            {
-              internalType: "string",
-              name: "techAgentPrompt",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "socialAgentPrompt",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "dataAgentPrompt",
-              type: "string",
             },
             {
               internalType: "address",
@@ -1866,45 +1351,6 @@ const deployedContracts = {
             },
           ],
           stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "newOracleAddress",
-              type: "address",
-            },
-          ],
-          name: "setOracleAddress",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "socialAgent",
-          outputs: [
-            {
-              internalType: "contract IOpenAiChatGpt",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "techAgent",
-          outputs: [
-            {
-              internalType: "contract IOpenAiChatGpt",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
           type: "function",
         },
       ],
