@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { formatEther } from "viem";
 import { Game } from "~~/types";
 
 export const GameItem = ({ game }: { game: Game }) => {
@@ -25,9 +26,7 @@ export const GameItem = ({ game }: { game: Game }) => {
         </a>
       </td>
       <td>{game.is_finished ? "Completed" : "In Progress"}</td>
-      <td>
-        {game.responsesCount} / {game.max_iterations}
-      </td>
+      <td>{formatEther(game.prizePool)}</td>
     </tr>
   );
 };

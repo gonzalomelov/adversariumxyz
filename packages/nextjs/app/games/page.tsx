@@ -17,6 +17,7 @@ interface AgentRun {
   responsesCount: bigint;
   max_iterations: number;
   is_finished: boolean;
+  prizePool: bigint;
 }
 
 const GameListPage = () => {
@@ -46,6 +47,7 @@ const GameListPage = () => {
             groupImage: run.groupImage,
             isCompleted: run.is_finished,
             groupId: run.groupId,
+            prizePool: run.prizePool,
           };
         }),
       );

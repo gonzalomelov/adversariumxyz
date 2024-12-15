@@ -9,4 +9,5 @@ export interface Game {
   groupImage: string;
   isCompleted: boolean;
   groupId: string;
+  prizePool: bigint;
 }
