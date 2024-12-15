@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     AdversariumToken: {
-      address: "0xa85233C63b9Ee964Add6F2cffe00Fd84eb32338f",
+      address: "0x4A679253410272dd5232B3Ff7cF5dbB88f295319",
       abi: [
         {
           inputs: [],
@@ -355,10 +355,25 @@ const deployedContracts = {
           type: "function",
         },
       ],
-      inheritedFunctions: {},
+      inheritedFunctions: {
+        allowance: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        approve: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        balanceOf: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        decimals: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        decreaseAllowance: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        increaseAllowance: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        name: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        symbol: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        totalSupply: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        transfer: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        transferFrom: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        owner: "@openzeppelin/contracts/access/Ownable.sol",
+        renounceOwnership: "@openzeppelin/contracts/access/Ownable.sol",
+        transferOwnership: "@openzeppelin/contracts/access/Ownable.sol",
+      },
     },
     AgentGame: {
-      address: "0x322813Fd9A801c5507c9de605d63CEA4f2CE6c44",
+      address: "0x7a2088a1bFc9d81c55368AE168C2C02570cB814F",
       abi: [
         {
           inputs: [
@@ -366,6 +381,11 @@ const deployedContracts = {
               internalType: "string",
               name: "systemPrompt",
               type: "string",
+            },
+            {
+              internalType: "address",
+              name: "_agentToken",
+              type: "address",
             },
           ],
           stateMutability: "nonpayable",
@@ -386,8 +406,39 @@ const deployedContracts = {
               name: "runId",
               type: "uint256",
             },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "interactionFee",
+              type: "uint256",
+            },
           ],
           name: "AgentRunCreated",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "runId",
+              type: "uint256",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "contributor",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+          ],
+          name: "PrizePoolIncreased",
           type: "event",
         },
         {
@@ -458,8 +509,68 @@ const deployedContracts = {
               name: "is_finished",
               type: "bool",
             },
+            {
+              internalType: "uint256",
+              name: "prizePool",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "interactionFee",
+              type: "uint256",
+            },
           ],
           stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "agentToken",
+          outputs: [
+            {
+              internalType: "contract IERC20",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "runId",
+              type: "uint256",
+            },
+          ],
+          name: "contributeToPool",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "runId",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "winner",
+              type: "address",
+            },
+          ],
+          name: "distributePrize",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
         {
@@ -518,6 +629,16 @@ const deployedContracts = {
                   internalType: "bool",
                   name: "is_finished",
                   type: "bool",
+                },
+                {
+                  internalType: "uint256",
+                  name: "prizePool",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "interactionFee",
+                  type: "uint256",
                 },
               ],
               internalType: "struct AgentGame.AgentRun[]",
@@ -591,6 +712,11 @@ const deployedContracts = {
               internalType: "string",
               name: "groupId",
               type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "interactionFee",
+              type: "uint256",
             },
           ],
           name: "runAgent",
@@ -901,7 +1027,7 @@ const deployedContracts = {
   },
   84532: {
     AdversariumToken: {
-      address: "0x909815f5D12B90653512faE30FD32E99745D1d09",
+      address: "0xE9d707B6FE20C943C6a131D0B30A42eD2adF65d5",
       abi: [
         {
           inputs: [],
@@ -1249,10 +1375,25 @@ const deployedContracts = {
           type: "function",
         },
       ],
-      inheritedFunctions: {},
+      inheritedFunctions: {
+        allowance: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        approve: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        balanceOf: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        decimals: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        decreaseAllowance: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        increaseAllowance: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        name: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        symbol: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        totalSupply: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        transfer: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        transferFrom: "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        owner: "@openzeppelin/contracts/access/Ownable.sol",
+        renounceOwnership: "@openzeppelin/contracts/access/Ownable.sol",
+        transferOwnership: "@openzeppelin/contracts/access/Ownable.sol",
+      },
     },
     AgentGame: {
-      address: "0x08aE1b7cCd13B4E3Ca64d5ebDE003fB0CcA908D5",
+      address: "0x0eD667767223766B80D637BD32c1AfD9383d80c4",
       abi: [
         {
           inputs: [
@@ -1260,6 +1401,11 @@ const deployedContracts = {
               internalType: "string",
               name: "systemPrompt",
               type: "string",
+            },
+            {
+              internalType: "address",
+              name: "_agentToken",
+              type: "address",
             },
           ],
           stateMutability: "nonpayable",
@@ -1280,8 +1426,39 @@ const deployedContracts = {
               name: "runId",
               type: "uint256",
             },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "interactionFee",
+              type: "uint256",
+            },
           ],
           name: "AgentRunCreated",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "runId",
+              type: "uint256",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "contributor",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+          ],
+          name: "PrizePoolIncreased",
           type: "event",
         },
         {
@@ -1352,8 +1529,68 @@ const deployedContracts = {
               name: "is_finished",
               type: "bool",
             },
+            {
+              internalType: "uint256",
+              name: "prizePool",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "interactionFee",
+              type: "uint256",
+            },
           ],
           stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "agentToken",
+          outputs: [
+            {
+              internalType: "contract IERC20",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "runId",
+              type: "uint256",
+            },
+          ],
+          name: "contributeToPool",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "runId",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "winner",
+              type: "address",
+            },
+          ],
+          name: "distributePrize",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
         {
@@ -1412,6 +1649,16 @@ const deployedContracts = {
                   internalType: "bool",
                   name: "is_finished",
                   type: "bool",
+                },
+                {
+                  internalType: "uint256",
+                  name: "prizePool",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "interactionFee",
+                  type: "uint256",
                 },
               ],
               internalType: "struct AgentGame.AgentRun[]",
@@ -1485,6 +1732,11 @@ const deployedContracts = {
               internalType: "string",
               name: "groupId",
               type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "interactionFee",
+              type: "uint256",
             },
           ],
           name: "runAgent",

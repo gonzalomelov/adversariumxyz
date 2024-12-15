@@ -40,6 +40,7 @@ export async function POST(request: Request) {
       prompt,
       groupImage,
       groupId,
+      ethers.parseUnits("1.0", 18),
     );
 
     // Wait for transaction confirmation
