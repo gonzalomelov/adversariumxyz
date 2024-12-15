@@ -9,12 +9,11 @@ export const GameTable = ({ games }: { games: Game[] }) => {
           <tr>
             <th>ID</th>
             <th>Image</th>
-            <th>Situation</th>
-            <th>Target</th>
-            <th>Group Title</th>
-            <th>Group ID</th>
+            <th>Name</th>
+            <th>Prompt</th>
+            <th>Link</th>
             <th>Status</th>
-            <th>Progress</th>
+            <th>Prize Pool</th>
           </tr>
         </thead>
         <tbody>

@@ -8,22 +8,11 @@ contract LeadAgent {
 
     string public prompt;
 
-    enum Situation {
-        UsdcDonation,
-        NftMint
-    }
-
     struct AgentRun {
         address owner;
         address creator;
-        address target;
-        string targetFirstName;
-        string targetFriend;
-        Situation situation;
-        address situationAddress;
-        string publicInfo;
-        string privateInfo;
-        string groupTitle;
+        string name;
+        string prompt;
         string groupImage;
         string groupId;
         uint responsesCount;
@@ -53,14 +42,8 @@ contract LeadAgent {
     function runAgent(
         uint8 max_iterations,
         address creator,
-        address target,
-        string memory targetFirstName,
-        string memory targetFriend,
-        Situation situation,
-        address situationAddress,
-        string memory publicInfo,
-        string memory privateInfo,
-        string memory groupTitle,
+        string memory name,
+        string memory prompt,
         string memory groupImage,
         string memory groupId
     ) public returns (uint) {
@@ -69,14 +52,8 @@ contract LeadAgent {
 
         run.owner = msg.sender;
         run.creator = creator;
-        run.target = target;
-        run.targetFirstName = targetFirstName;
-        run.targetFriend = targetFriend;
-        run.situation = situation;
-        run.situationAddress = situationAddress;
-        run.publicInfo = publicInfo;
-        run.privateInfo = privateInfo;
-        run.groupTitle = groupTitle;
+        run.name = name;
+        run.prompt = prompt;
         run.groupImage = groupImage;
         run.groupId = groupId;
         run.is_finished = false;
@@ -109,14 +86,8 @@ contract LeadAgent {
                 filteredRuns[index] = AgentRun({
                     owner: agentRuns[i].owner,
                     creator: agentRuns[i].creator,
-                    target: agentRuns[i].target,
-                    targetFirstName: agentRuns[i].targetFirstName,
-                    targetFriend: agentRuns[i].targetFriend,
-                    situation: agentRuns[i].situation,
-                    situationAddress: agentRuns[i].situationAddress,
-                    publicInfo: agentRuns[i].publicInfo,
-                    privateInfo: agentRuns[i].privateInfo,
-                    groupTitle: agentRuns[i].groupTitle,
+                    name: agentRuns[i].name,
+                    prompt: agentRuns[i].prompt,
                     groupImage: agentRuns[i].groupImage,
                     groupId: agentRuns[i].groupId,
                     responsesCount: agentRuns[i].responsesCount,

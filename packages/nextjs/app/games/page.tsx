@@ -10,14 +10,8 @@ import { Game } from "~~/types";
 interface AgentRun {
   owner: string;
   creator: string;
-  target: string;
-  targetFirstName: string;
-  targetFriend: string;
-  situation: number;
-  situationAddress: string;
-  publicInfo: string;
-  privateInfo: string;
-  groupTitle: string;
+  name: string;
+  prompt: string;
   groupImage: string;
   groupId: string;
   responsesCount: bigint;
@@ -47,11 +41,8 @@ const GameListPage = () => {
             responsesCount: run.responsesCount,
             max_iterations: run.max_iterations,
             is_finished: run.is_finished,
-            target: run.target,
-            situation: run.situation === 0 ? "UsdcDonation" : "NftMint",
-            situationAddress: run.situationAddress,
-            privateInfo: run.privateInfo,
-            groupTitle: run.groupTitle,
+            name: run.name,
+            prompt: run.prompt,
             groupImage: run.groupImage,
             isCompleted: run.is_finished,
             groupId: run.groupId,

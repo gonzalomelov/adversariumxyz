@@ -19,24 +19,8 @@ if (!AGENT_CONTRACT_ADDRESS) throw new Error("Missing AGENT_CONTRACT_ADDRESS");
 if (!RPC_URL) throw new Error("Missing RPC_URL");
 if (!PRIVATE_KEY) throw new Error("Missing PRIVATE_KEY");
 
-// Situation enum mapping
-const SituationMap = {
-  UsdcDonation: 0,
-  NftMint: 1,
-};
-
 export async function POST(request: Request) {
-  const {
-    target,
-    targetFirstName,
-    targetFriend,
-    situation,
-    situationAddress,
-    privateInfo,
-    groupTitle,
-    groupImage,
-    creator,
-  } = await request.json();
+  const { name, prompt, groupImage, creator } = await request.json();
 
   try {
     // Initialize provider and signer
@@ -52,14 +36,8 @@ export async function POST(request: Request) {
     const tx = await contract.runAgent(
       20, // max_iterations
       creator,
-      target,
-      targetFirstName,
-      targetFriend,
-      SituationMap[situation as keyof typeof SituationMap],
-      situationAddress,
-      "", // publicInfo (empty for now)
-      privateInfo,
-      groupTitle,
+      name,
+      prompt,
       groupImage,
       groupId,
     );
@@ -88,13 +66,8 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         id: agentRunId,
-        target,
-        targetFirstName,
-        targetFriend,
-        situation,
-        situationAddress,
-        privateInfo,
-        groupTitle,
+        name,
+        prompt,
         groupImage,
         isCompleted: agentRun.is_finished,
         groupId,

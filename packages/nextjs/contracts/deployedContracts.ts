@@ -6,33 +6,8 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
   31337: {
-    DataAgentFactory: {
-      address: "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "oracleAddress",
-              type: "address",
-            },
-          ],
-          name: "createDataAgent",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
     LeadAgent: {
-      address: "0x959922bE3CAee4b8Cd9a407cc3ac1C251C2007B1",
+      address: "0x3Aa5ebB10DC797CAC828524e59A333d0A371443c",
       abi: [
         {
           inputs: [
@@ -98,43 +73,13 @@ const deployedContracts = {
               type: "address",
             },
             {
-              internalType: "address",
-              name: "target",
-              type: "address",
-            },
-            {
               internalType: "string",
-              name: "targetFirstName",
+              name: "name",
               type: "string",
             },
             {
               internalType: "string",
-              name: "targetFriend",
-              type: "string",
-            },
-            {
-              internalType: "enum LeadAgent.Situation",
-              name: "situation",
-              type: "uint8",
-            },
-            {
-              internalType: "address",
-              name: "situationAddress",
-              type: "address",
-            },
-            {
-              internalType: "string",
-              name: "publicInfo",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "privateInfo",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "groupTitle",
+              name: "prompt",
               type: "string",
             },
             {
@@ -189,43 +134,13 @@ const deployedContracts = {
                   type: "address",
                 },
                 {
-                  internalType: "address",
-                  name: "target",
-                  type: "address",
-                },
-                {
                   internalType: "string",
-                  name: "targetFirstName",
+                  name: "name",
                   type: "string",
                 },
                 {
                   internalType: "string",
-                  name: "targetFriend",
-                  type: "string",
-                },
-                {
-                  internalType: "enum LeadAgent.Situation",
-                  name: "situation",
-                  type: "uint8",
-                },
-                {
-                  internalType: "address",
-                  name: "situationAddress",
-                  type: "address",
-                },
-                {
-                  internalType: "string",
-                  name: "publicInfo",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "privateInfo",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "groupTitle",
+                  name: "prompt",
                   type: "string",
                 },
                 {
@@ -307,43 +222,13 @@ const deployedContracts = {
               type: "address",
             },
             {
-              internalType: "address",
-              name: "target",
-              type: "address",
-            },
-            {
               internalType: "string",
-              name: "targetFirstName",
+              name: "name",
               type: "string",
             },
             {
               internalType: "string",
-              name: "targetFriend",
-              type: "string",
-            },
-            {
-              internalType: "enum LeadAgent.Situation",
-              name: "situation",
-              type: "uint8",
-            },
-            {
-              internalType: "address",
-              name: "situationAddress",
-              type: "address",
-            },
-            {
-              internalType: "string",
-              name: "publicInfo",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "privateInfo",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "groupTitle",
+              name: "prompt",
               type: "string",
             },
             {
@@ -371,335 +256,8 @@ const deployedContracts = {
       ],
       inheritedFunctions: {},
     },
-    PrevOpenAiChatGpt: {
-      address: "0x0DCd1Bf9A1b36cE34237eEaFef220932846BCD82",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "initialOracleAddress",
-              type: "address",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "constructor",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "owner",
-              type: "address",
-            },
-            {
-              indexed: true,
-              internalType: "uint256",
-              name: "chatId",
-              type: "uint256",
-            },
-          ],
-          name: "ChatCreated",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "newOracleAddress",
-              type: "address",
-            },
-          ],
-          name: "OracleAddressUpdated",
-          type: "event",
-        },
-        {
-          inputs: [
-            {
-              internalType: "string",
-              name: "message",
-              type: "string",
-            },
-            {
-              internalType: "uint256",
-              name: "runId",
-              type: "uint256",
-            },
-          ],
-          name: "addMessage",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          name: "chatRuns",
-          outputs: [
-            {
-              internalType: "address",
-              name: "owner",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "messagesCount",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "chatId",
-              type: "uint256",
-            },
-          ],
-          name: "getMessageHistoryContents",
-          outputs: [
-            {
-              internalType: "string[]",
-              name: "",
-              type: "string[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "chatId",
-              type: "uint256",
-            },
-          ],
-          name: "getMessageHistoryRoles",
-          outputs: [
-            {
-              internalType: "string[]",
-              name: "",
-              type: "string[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "runId",
-              type: "uint256",
-            },
-            {
-              internalType: "string",
-              name: "response",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "errorMessage",
-              type: "string",
-            },
-          ],
-          name: "onOracleFunctionResponse",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "runId",
-              type: "uint256",
-            },
-            {
-              components: [
-                {
-                  internalType: "string",
-                  name: "id",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "content",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "functionName",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "functionArguments",
-                  type: "string",
-                },
-                {
-                  internalType: "uint64",
-                  name: "created",
-                  type: "uint64",
-                },
-                {
-                  internalType: "string",
-                  name: "model",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "systemFingerprint",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "object",
-                  type: "string",
-                },
-                {
-                  internalType: "uint32",
-                  name: "completionTokens",
-                  type: "uint32",
-                },
-                {
-                  internalType: "uint32",
-                  name: "promptTokens",
-                  type: "uint32",
-                },
-                {
-                  internalType: "uint32",
-                  name: "totalTokens",
-                  type: "uint32",
-                },
-              ],
-              internalType: "struct IOracle.OpenAiResponse",
-              name: "response",
-              type: "tuple",
-            },
-            {
-              internalType: "string",
-              name: "errorMessage",
-              type: "string",
-            },
-          ],
-          name: "onOracleOpenAiLlmResponse",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "oracleAddress",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "newOracleAddress",
-              type: "address",
-            },
-          ],
-          name: "setOracleAddress",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "string",
-              name: "message",
-              type: "string",
-            },
-          ],
-          name: "startChat",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    SocialAgentFactory: {
-      address: "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "oracleAddress",
-              type: "address",
-            },
-          ],
-          name: "createSocialAgent",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    TechAgentFactory: {
-      address: "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "oracleAddress",
-              type: "address",
-            },
-          ],
-          name: "createTechAgent",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
     TodoList: {
-      address: "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
+      address: "0x68B1D87F95878fE05B998F19b66F4baba5De1aed",
       abi: [
         {
           anonymous: false,
@@ -847,7 +405,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853",
+      address: "0x9A9f2CCfdE556A7E9Ff0848998Aa4a0CFD8863AE",
       abi: [
         {
           inputs: [
@@ -991,33 +549,8 @@ const deployedContracts = {
     },
   },
   84532: {
-    DataAgentFactory: {
-      address: "0x27B6558C1567e53dd95EA32984D9840150c30c97",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "oracleAddress",
-              type: "address",
-            },
-          ],
-          name: "createDataAgent",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
     LeadAgent: {
-      address: "0x34dBa04bB01DE5269Fd2256858Cf5097a9aEC56B",
+      address: "0xA01D9727bE9fFe092d574Cb5eb50C97bFE60809e",
       abi: [
         {
           inputs: [
@@ -1083,43 +616,13 @@ const deployedContracts = {
               type: "address",
             },
             {
-              internalType: "address",
-              name: "target",
-              type: "address",
-            },
-            {
               internalType: "string",
-              name: "targetFirstName",
+              name: "name",
               type: "string",
             },
             {
               internalType: "string",
-              name: "targetFriend",
-              type: "string",
-            },
-            {
-              internalType: "enum LeadAgent.Situation",
-              name: "situation",
-              type: "uint8",
-            },
-            {
-              internalType: "address",
-              name: "situationAddress",
-              type: "address",
-            },
-            {
-              internalType: "string",
-              name: "publicInfo",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "privateInfo",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "groupTitle",
+              name: "prompt",
               type: "string",
             },
             {
@@ -1174,43 +677,13 @@ const deployedContracts = {
                   type: "address",
                 },
                 {
-                  internalType: "address",
-                  name: "target",
-                  type: "address",
-                },
-                {
                   internalType: "string",
-                  name: "targetFirstName",
+                  name: "name",
                   type: "string",
                 },
                 {
                   internalType: "string",
-                  name: "targetFriend",
-                  type: "string",
-                },
-                {
-                  internalType: "enum LeadAgent.Situation",
-                  name: "situation",
-                  type: "uint8",
-                },
-                {
-                  internalType: "address",
-                  name: "situationAddress",
-                  type: "address",
-                },
-                {
-                  internalType: "string",
-                  name: "publicInfo",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "privateInfo",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "groupTitle",
+                  name: "prompt",
                   type: "string",
                 },
                 {
@@ -1292,43 +765,13 @@ const deployedContracts = {
               type: "address",
             },
             {
-              internalType: "address",
-              name: "target",
-              type: "address",
-            },
-            {
               internalType: "string",
-              name: "targetFirstName",
+              name: "name",
               type: "string",
             },
             {
               internalType: "string",
-              name: "targetFriend",
-              type: "string",
-            },
-            {
-              internalType: "enum LeadAgent.Situation",
-              name: "situation",
-              type: "uint8",
-            },
-            {
-              internalType: "address",
-              name: "situationAddress",
-              type: "address",
-            },
-            {
-              internalType: "string",
-              name: "publicInfo",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "privateInfo",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "groupTitle",
+              name: "prompt",
               type: "string",
             },
             {
@@ -1356,335 +799,8 @@ const deployedContracts = {
       ],
       inheritedFunctions: {},
     },
-    PrevOpenAiChatGpt: {
-      address: "0xDb259Ea34dFc38c15E25aBC334C0096D41014F03",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "initialOracleAddress",
-              type: "address",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "constructor",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "owner",
-              type: "address",
-            },
-            {
-              indexed: true,
-              internalType: "uint256",
-              name: "chatId",
-              type: "uint256",
-            },
-          ],
-          name: "ChatCreated",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "newOracleAddress",
-              type: "address",
-            },
-          ],
-          name: "OracleAddressUpdated",
-          type: "event",
-        },
-        {
-          inputs: [
-            {
-              internalType: "string",
-              name: "message",
-              type: "string",
-            },
-            {
-              internalType: "uint256",
-              name: "runId",
-              type: "uint256",
-            },
-          ],
-          name: "addMessage",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          name: "chatRuns",
-          outputs: [
-            {
-              internalType: "address",
-              name: "owner",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "messagesCount",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "chatId",
-              type: "uint256",
-            },
-          ],
-          name: "getMessageHistoryContents",
-          outputs: [
-            {
-              internalType: "string[]",
-              name: "",
-              type: "string[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "chatId",
-              type: "uint256",
-            },
-          ],
-          name: "getMessageHistoryRoles",
-          outputs: [
-            {
-              internalType: "string[]",
-              name: "",
-              type: "string[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "runId",
-              type: "uint256",
-            },
-            {
-              internalType: "string",
-              name: "response",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "errorMessage",
-              type: "string",
-            },
-          ],
-          name: "onOracleFunctionResponse",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "runId",
-              type: "uint256",
-            },
-            {
-              components: [
-                {
-                  internalType: "string",
-                  name: "id",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "content",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "functionName",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "functionArguments",
-                  type: "string",
-                },
-                {
-                  internalType: "uint64",
-                  name: "created",
-                  type: "uint64",
-                },
-                {
-                  internalType: "string",
-                  name: "model",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "systemFingerprint",
-                  type: "string",
-                },
-                {
-                  internalType: "string",
-                  name: "object",
-                  type: "string",
-                },
-                {
-                  internalType: "uint32",
-                  name: "completionTokens",
-                  type: "uint32",
-                },
-                {
-                  internalType: "uint32",
-                  name: "promptTokens",
-                  type: "uint32",
-                },
-                {
-                  internalType: "uint32",
-                  name: "totalTokens",
-                  type: "uint32",
-                },
-              ],
-              internalType: "struct IOracle.OpenAiResponse",
-              name: "response",
-              type: "tuple",
-            },
-            {
-              internalType: "string",
-              name: "errorMessage",
-              type: "string",
-            },
-          ],
-          name: "onOracleOpenAiLlmResponse",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "oracleAddress",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "newOracleAddress",
-              type: "address",
-            },
-          ],
-          name: "setOracleAddress",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "string",
-              name: "message",
-              type: "string",
-            },
-          ],
-          name: "startChat",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    SocialAgentFactory: {
-      address: "0xD7f6523f065AC4C6dc680216Fb4eCC8975258c00",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "oracleAddress",
-              type: "address",
-            },
-          ],
-          name: "createSocialAgent",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    TechAgentFactory: {
-      address: "0xd66A3d3067B88FA8b3C34522A79b983394819924",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "oracleAddress",
-              type: "address",
-            },
-          ],
-          name: "createTechAgent",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
     TodoList: {
-      address: "0x0ed0Ee8318E6C30f80A2E9ED643d1f553B831e3a",
+      address: "0xB6FcD17D10a9705de438Cba3bd31654f72443621",
       abi: [
         {
           anonymous: false,
@@ -1832,7 +948,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x666CD9D6ce54C1309001E50e7ba89c50322F130b",
+      address: "0x7B50b52587fDdF8f51bF90e8fA55D42c29BdB286",
       abi: [
         {
           inputs: [
